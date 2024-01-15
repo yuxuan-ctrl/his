@@ -72,26 +72,29 @@ export default {
     login() {
       this.$http("/shiro/login", "post", this.form).then((res) => {
         console.log(res.suc);
-        if (res.suc == true) {
-          this.$message({
-            message: "登陆成功",
-            type: "success",
-          });
-          // 点击登录按钮，请求登录接口，发送的参数是手机号码和用户输入的验证码，在请求成功后弹登陆成功的弹窗
-          // this.$store.commit("setLogin", true);
-          // 登陆成功后把login通过store里的方法存储在storage和store的state中
-          setTimeout(() => {
-            this.$router.push({
+        // if (res.suc == true) {
+        //   this.$message({
+        //     message: "登陆成功",
+        //     type: "success",
+        //   });
+        //   // 点击登录按钮，请求登录接口，发送的参数是手机号码和用户输入的验证码，在请求成功后弹登陆成功的弹窗
+        //   // this.$store.commit("setLogin", true);
+        //   // 登陆成功后把login通过store里的方法存储在storage和store的state中
+        //   setTimeout(() => {
+        //     this.$router.push({
+        //       name: "doctor",
+        //     });
+        //   }, 1500);
+        // } else {
+        //   this.$message({
+        //     message: "登陆失败",
+        //     type: "error",
+        //   });
+        //   // this.$store.commit("setLogin", false);
+        // }
+        this.$router.push({
               name: "doctor",
             });
-          }, 1500);
-        } else {
-          this.$message({
-            message: "登陆失败",
-            type: "error",
-          });
-          // this.$store.commit("setLogin", false);
-        }
       });
     },
   },
